@@ -35,5 +35,7 @@
 - name: enable/start unifi
   systemd:
     name: unifi
-    state: started
     enabled: yes
+
+- name: reboot
+  reboot:
