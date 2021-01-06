@@ -1,5 +1,5 @@
 ---
-glaxy_info:
+galaxy_info:
   author: Bastian Schlecht
   description: An Ansible role to install a unifi controller on centos8
   license: GPLv3
