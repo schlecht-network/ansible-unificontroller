@@ -1,0 +1,15 @@
+---
+glaxy_info:
+  author: Bastian Schlecht
+  description: An Ansible role to install a unifi controller on centos8
+  license: GPLv3
+  min_ansible_version: 2.9
+  platforms:
+    - name: EL
+      versions:
+        - 8
+  galaxy_tags:
+    - unifi
+    - controller
+
+dependencies: []   

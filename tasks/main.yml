@@ -1,0 +1,39 @@
+---
+- name: install dnf-plugins-core
+  dnf:
+    name: dnf-plugins-core
+    state: latest
+
+- name: enable powertools
+  shell: yum config-manager --set-enabled powertools
+
+- name: install epel-release
+  dnf:
+    name: epel-release repo
+    state: latest
+
+- name: install rpmfusion-free repo
+  dnf:
+    name: 'https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm'
+    state: present
+
+- name: install rpmfusion-nonfree repo
+  dnf:
+    name: 'https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm'
+    state: present
+
+- name: install unifi
+  dnf:
+    name: unifi
+    state: latest
+
+- name: install mongodb
+  dnf:
+    name: 'https://repo.mongodb.org/yum/redhat/8/mongodb-org/4.2/x86_64/RPMS/mongodb-org-server-4.2.2-1.el8.x86_64.rpm'
+    state: present
+
+- name: enable/start unifi
+  systemd:
+    name: unifi
+    state: started
+    enabled: yes
