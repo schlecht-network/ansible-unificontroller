@@ -7,9 +7,9 @@
 - name: enable powertools
   shell: yum config-manager --set-enabled powertools
 
-- name: install epel-release
+- name: install epel-release repo
   dnf:
-    name: epel-release repo
+    name: epel-release
     state: latest
 
 - name: install rpmfusion-free repo
