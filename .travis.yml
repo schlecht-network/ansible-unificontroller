@@ -7,5 +7,8 @@ env:
   - distribution: centos
     version: 8
 
+install:
+  - pip install -r https://raw.githubusercontent.com/nephelaiio/ansible-role-requirements/master/requirements.txt
+
 services:
   - docker
