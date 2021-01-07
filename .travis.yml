@@ -12,3 +12,6 @@ install:
 
 services:
   - docker
+
+script:
+  - molecule test
