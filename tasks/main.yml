@@ -32,8 +32,38 @@
     name: 'https://repo.mongodb.org/yum/redhat/8/mongodb-org/4.2/x86_64/RPMS/mongodb-org-server-4.2.2-1.el8.x86_64.rpm'
     state: present
 
+- name: install firewalld
+  dnf:
+    name: firewalld
+    state: latest
+
+- name: enable/start firewalld
+  systemd:
+    name: firewalld
+    state: started
+    enabled: yes
+
 - name: enable/start unifi
   systemd:
     name: unifi
     state: started
     enabled: yes
+
+- name: 'firewall-cmd allow service'
+  firewalld:
+        service: "{{ item.service }}"
+        permanent: yes
+        immediate: yes
+        state: enabled
+  with_items: "{{ firewall_cmd_allow }}"
+  when: item.service is defined
+
+- name: 'firewall-cmd allow port'
+  firewalld:
+        port: "{{ item.port }}"
+        permanent: yes
+        immediate: yes
+        state: enabled
+  with_items: "{{ firewall_cmd_allow }}"
+  when: item.port is defined
+

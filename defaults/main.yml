@@ -1,0 +1,13 @@
+firewall_cmd_allow:
+  - service: ssh
+  - port: 3478/udp
+  - port: 5514/udp
+  - port: 8080/tcp
+  - port: 8443/tcp
+  - port: 8880/tcp
+  - port: 8843/tcp
+  - port: 6789/tcp
+  - port: 27117/tcp
+  - port: 5656-5699/udp
+  - port: 10001/udp
+  - port: 1900/udp
