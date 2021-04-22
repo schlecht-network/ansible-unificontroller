@@ -1,9 +1,4 @@
 ---
-- name: install dnf-plugins-core
-  dnf:
-    name: dnf-plugins-core
-    state: latest
-
 - name: install rpmfusion-free repo
   dnf:
     name: 'https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm'
@@ -13,6 +8,11 @@
   dnf:
     name: 'https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm'
     state: present
+
+- name: install jre-1.8.0
+  dnf:
+    name: jre-1.8.0
+    state: latest
 
 - name: install unifi
   dnf:
